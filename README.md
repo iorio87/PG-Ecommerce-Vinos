@@ -1,9 +1,9 @@
 
 #
 
-Una aplicacion E-commerce de Vinos aplicando busqueda, filtros y metodos de pagos   
+Aplicacion E-commerce de Vinos aplicando busqueda, filtros y metodos de pagos   
 
-Esta desarrollada con JavaScript utilizando React.  
+Desarrollada con JavaScript utilizando React.  
 
 
 
