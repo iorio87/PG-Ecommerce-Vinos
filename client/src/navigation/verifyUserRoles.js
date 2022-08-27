@@ -8,7 +8,7 @@ export default function VerifyUserRoles({ children, userRole }) {
   if (!userRole) {
     return (
       <div className="grid place-items-center h-screen ">
-        <img className="h-8 w-8" src={loading}></img>
+        <img className="" src={loading}></img>
       </div>
     );
   } else {

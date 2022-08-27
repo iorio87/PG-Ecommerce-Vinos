@@ -4,7 +4,7 @@ import Filters from "../components/filters/filters";
 import Footer from "../components/footer/footer";
 import Navbar from "../components/navbar/navbar";
 import ScrollToTop from "react-scroll-to-top";
-// import Offers from "../components/offers/offers";
+import Offers from "../components/offers/offers";
 
 function Home() {
   return (
@@ -23,11 +23,12 @@ function Home() {
         <div>
           <Filters />
         </div>
-        {/* <div>
-          <Offers />
-        </div> */}
+        
         <div>
           <Cards />
+        </div>
+        <div>
+          <Offers />
         </div>
         <div>
           <Footer />

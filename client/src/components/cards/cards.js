@@ -6,7 +6,7 @@ import Card from "../card/card";
 import Error10 from "../errorpage/errorpage";
 import ReactPaginate from "react-paginate";
 
-const PER_PAGE = 10;
+const PER_PAGE = 4;
 
 function Cards() {
   const { products } = useSelector((state) => state);
@@ -72,7 +72,7 @@ function Cards() {
         />
       </div>
 
-      <div className="w-full min-h-screen gap-4 flex-wrap flex justify-center items-center">
+      <div className="w-full gap-4 flex-wrap flex justify-center items-center">
         {products &&
           currentPageProduct.map((e) => {
             return (

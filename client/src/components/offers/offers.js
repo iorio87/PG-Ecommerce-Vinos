@@ -42,7 +42,7 @@ function Offers() {
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                       <div className="w-44 h-64 rounded-lg overflow-hidden">
                         <img
-                          src="https://www.cocinayvino.com/wp-content/uploads/2017/03/Catar-un-vino-1024x683.jpg"
+                          src="https://www.campusdelvino.com/media/k2/items/cache/cd66a7a18d37d7e5dd969c249e9a1ecb_XL.jpg"
                           alt=""
                           className="w-full h-full object-center object-cover"
                         />
@@ -84,7 +84,7 @@ function Offers() {
 
               <a
                 href="#"
-                className="inline-block text-center bg-yellow-500 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-yellow-700"
+                className="inline-block text-center bg-violet-500 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-violet-700"
               >
                 Ver Listado
               </a>

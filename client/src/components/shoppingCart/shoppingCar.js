@@ -14,40 +14,36 @@ import {
 import logo from "../../assets/logo.png";
 import { toast } from "react-toastify";
 
-
-
 export default function ShoppingCart() {
-
   const [windowSize, setWindowSize] = useState();
-
 
   const navigate = useNavigate();
   const { shoppingCart } = useSelector((state) => state);
   const [listProduct, setListProduct] = useState({});
   const [total, setTotal] = useState(0);
   const dispatch = useDispatch();
-  var pantalla = "PC"
+  var pantalla = "PC";
   let localShoppingCart = JSON.parse(localStorage.getItem("shoppingCarts"));
 
   useEffect(() => {
     window.addEventListener("resize", () => {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
     });
-  }, [])
+  }, []);
 
   if (!windowSize) {
-    pantalla = "PC"
+    pantalla = "PC";
   } else {
     if (windowSize.width < 600) {
-      pantalla = "Phone"
+      pantalla = "Phone";
     } else {
-      pantalla = "PC"
+      pantalla = "PC";
     }
   }
 
   useEffect(() => {
     const id_usuario = localStorage.getItem("user");
-    setWindowSize({ width: window.innerWidth, height: window.innerHeight })
+    setWindowSize({ width: window.innerWidth, height: window.innerHeight });
     if (localShoppingCart && id_usuario) {
       dispatch(AddShoppingCart({ products: localShoppingCart, id_usuario }));
       if (!localShoppingCart) {
@@ -76,13 +72,11 @@ export default function ShoppingCart() {
   }, [shoppingCart]);
 
   function handleCount(e, product) {
-
-
     let sum = 0;
     for (var i = 0; i < shoppingCart.length; i++) {
       if (product.id_prod_cart === shoppingCart[i].id_prod_cart) {
         shoppingCart[i].product.price =
-        shoppingCart[i].product.price / shoppingCart[i].amount;
+          shoppingCart[i].product.price / shoppingCart[i].amount;
         shoppingCart[i].amount = e.value;
         shoppingCart[i].product.price = shoppingCart[i].product.price * e.value;
         sum += shoppingCart[i].product.price;
@@ -101,7 +95,7 @@ export default function ShoppingCart() {
       sum += e.amount * e.product.price;
     });
 
-    setTotal(sum); 
+    setTotal(sum);
   }
 
   function clearCart(id_prod_cart) {
@@ -146,12 +140,13 @@ export default function ShoppingCart() {
             quantity: parseInt(product.amount),
           };
         });
-        dispatch(payment({ products: products, user_id: id_usuario, total: total }))
-        .then(()=>{
+        dispatch(
+          payment({ products: products, user_id: id_usuario, total: total })
+        ).then(() => {
           clearCart();
-          toast.success('Orden Ingresada!')
+          toast.success("Orden Ingresada!");
           navigate("/user/orders");
-        })
+        });
       } else {
         alert("Carrito Vacio");
       }
@@ -160,10 +155,8 @@ export default function ShoppingCart() {
     }
   }
 
- 
   if (shoppingCart.length > 0) {
     if (pantalla !== "PC") {
-     
       return (
         <div className="container mx-auto mt-10">
           <div className="container justify-center">
@@ -183,22 +176,25 @@ export default function ShoppingCart() {
               <div className="flex justify-center my-6">
                 <div className="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
                   <div className="flex-1">
-                    <table className="w-full text-sm lg:text-base" >
+                    <table className="w-full text-sm lg:text-base">
                       <thead>
                         <tr className="h-12 uppercase">
                           <th className="hidden md:table-cell"></th>
                           <th className="text-center">Producto</th>
                           <th className="lg:text-center text-left pl-5 lg:pl-0">
-                            <span className="lg:hidden" title="Cantidad">Cant.</span>
+                            <span className="lg:hidden" title="Cantidad">
+                              Cant.
+                            </span>
                             <span className="hidden lg:inline">Cantidad</span>
                           </th>
-                          <th className="hidden text-right md:table-cell">Precio</th>
+                          <th className="hidden text-right md:table-cell">
+                            Precio
+                          </th>
                           <th className="text-right">Total</th>
                         </tr>
                       </thead>
 
                       <tbody>
-
                         {shoppingCart.length > 0 ? (
                           shoppingCart.map((product) => {
                             return (
@@ -206,45 +202,70 @@ export default function ShoppingCart() {
                                 <tr>
                                   <td className="hidden pb-4 md:table-cell">
                                     <a href="#">
-                                      <img src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo5m6byX_gPMYQbehVup4TGdqTIsPD_5HQew&usqp=CAU'} alt={product.product.name} className="w-20 rounded" />
+                                      <img
+                                        src={
+                                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo5m6byX_gPMYQbehVup4TGdqTIsPD_5HQew&usqp=CAU"
+                                        }
+                                        alt={product.product.name}
+                                        className="w-20 rounded"
+                                      />
                                     </a>
                                   </td>
                                   <td>
                                     <a href="#">
-                                      <p className="mb-2 md:ml-4">{product.product.name}</p>
+                                      <p className="mb-2 md:ml-4">
+                                        {product.product.name}
+                                      </p>
                                     </a>
                                     <form action="" method="POST">
-                                      <button type="submit" className="text-gray-700 md:ml-4" onClick={() => clearCart(product.id_prod_cart)} >
+                                      <button
+                                        type="submit"
+                                        className="text-gray-700 md:ml-4"
+                                        onClick={() =>
+                                          clearCart(product.id_prod_cart)
+                                        }
+                                      >
                                         <small>(Remove item)</small>
                                       </button>
                                     </form>
                                   </td>
 
                                   <td className=" text-right md:table-cell">
-
                                     <div className="relative flex flex-row w-full h-8">
-                                      <input type="number"
+                                      <input
+                                        type="number"
                                         min="1"
                                         max="100" //<=== TODO aca va el stock
                                         value={product.amount}
-                                        onChange={(e) => handleCount(e.target, product)}
-                                        className="text-sm lg:text-base text-center  font-medium justify-center w-full font-semibold text-center text-gray-700 bg-gray-200 outline-none focus:outline-none hover:text-black focus:text-black" />
-
+                                        onChange={(e) =>
+                                          handleCount(e.target, product)
+                                        }
+                                        className="text-sm lg:text-base text-center  font-medium justify-center w-full font-semibold text-center text-gray-700 bg-gray-200 outline-none focus:outline-none hover:text-black focus:text-black"
+                                      />
                                     </div>
-
                                   </td>
                                   <td className="hidden text-right md:table-cell">
                                     <span className="text-sm lg:text-base font-medium">
-                                      <NumberFormat value={product.product.price / product.amount} displayType={'text'} thousandSeparator={true} prefix={'$ '} />
+                                      <NumberFormat
+                                        value={
+                                          product.product.price / product.amount
+                                        }
+                                        displayType={"text"}
+                                        thousandSeparator={true}
+                                        prefix={"$ "}
+                                      />
                                     </span>
                                   </td>
                                   <td className="text-right">
                                     <span className="text-sm lg:text-base font-medium">
-                                      <NumberFormat value={product.product.price} displayType={'text'} thousandSeparator={true} prefix={'$ '} />
+                                      <NumberFormat
+                                        value={product.product.price}
+                                        displayType={"text"}
+                                        thousandSeparator={true}
+                                        prefix={"$ "}
+                                      />
                                     </span>
-
                                   </td>
-
                                 </tr>
                               </Fragment>
                             );
@@ -259,16 +280,13 @@ export default function ShoppingCart() {
                       </tbody>
                     </table>
 
-
                     <> </>
-
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="my-4 mt-6 -mx-2 lg:flex justify-center  border-b pb-8">
-
               <div className="lg:px-2 lg:w-1/2 justify-center  ">
                 {/* <div className="p-4 bg-gray-100 rounded-full">
                 <h1 className="ml-2 font-bold uppercase">Order Details</h1>
@@ -296,7 +314,12 @@ export default function ShoppingCart() {
                         Subtotal
                       </div>
                       <div className="lg:px-4 lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900">
-                        <NumberFormat value={total} displayType={'text'} thousandSeparator={true} prefix={'$ '} />
+                        <NumberFormat
+                          value={total}
+                          displayType={"text"}
+                          thousandSeparator={true}
+                          prefix={"$ "}
+                        />
                       </div>
                     </div>
 
@@ -305,7 +328,12 @@ export default function ShoppingCart() {
                         Total
                       </div>
                       <div className="lg:px-4 lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900">
-                        <NumberFormat value={total} displayType={'text'} thousandSeparator={true} prefix={'$ '} />
+                        <NumberFormat
+                          value={total}
+                          displayType={"text"}
+                          thousandSeparator={true}
+                          prefix={"$ "}
+                        />
                       </div>
                     </div>
                     <div>
@@ -345,7 +373,8 @@ export default function ShoppingCart() {
                     href="#"
                     className="flex font-semibold text-indigo-600 text-sm mt-10"
                     onClick={() => (window.location.href = "/")}
-                  >&nbsp;&nbsp;&nbsp;&nbsp;
+                  >
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <svg
                       className="fill-current mr-2 text-indigo-600 w-5"
                       viewBox="0 0 448 512"
@@ -359,9 +388,8 @@ export default function ShoppingCart() {
             </div>
           </div>
         </div>
-      )
+      );
     } else {
-      
       return (
         <>
           <div className="bg-gray-100 px-10 py-10">
@@ -370,7 +398,9 @@ export default function ShoppingCart() {
                 <div className="w-3/4 bg-white px-10 py-10">
                   <div className="flex justify-between border-b pb-8">
                     <img src={logo} alt="logo" className="w-8" />
-                    <h1 className="font-semibold text-2xl">Carrito de Compras</h1>
+                    <h1 className="font-semibold text-2xl">
+                      Carrito de Compras
+                    </h1>
                     <h2 className="font-semibold text-2xl">
                       {shoppingCart.length} Productos
                     </h2>
@@ -409,7 +439,9 @@ export default function ShoppingCart() {
                                 <a
                                   href="#"
                                   className="font-semibold hover:text-red-500 text-gray-500 text-xs"
-                                  onClick={() => clearCart(product.id_prod_cart)}
+                                  onClick={() =>
+                                    clearCart(product.id_prod_cart)
+                                  }
                                 >
                                   Quitar Producto
                                 </a>
@@ -530,14 +562,20 @@ export default function ShoppingCart() {
     }
   } else {
     if (localShoppingCart) {
-      if (localShoppingCart.length === 0){
-        window.location.href = "/"
+      if (localShoppingCart.length === 0) {
+        window.location.href = "/";
       }
       return (
-        <div>Cargando...</div>
-        )
-      } else {
-        window.location.href = "/"
-      }
+        <div>
+          <img
+            src="https://cdn.dribbble.com/users/137792/screenshots/5336542/media/f1184b0f43ce2fca3e4695931c307dcc.gif"
+            alt="cargando..."
+            className="mx-auto"
+          />
+        </div>
+      );
+    } else {
+      window.location.href = "/";
+    }
   }
 }
