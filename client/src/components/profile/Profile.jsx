@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from 'react-router-dom';
 import { FaShoppingCart ,FaRegHeart} from "react-icons/fa";
 import { VscNotebook } from "react-icons/vsc"
+import loading from "../../assets/loading.gif";
 
 
 function Profile() {
@@ -12,7 +13,7 @@ function Profile() {
     <div>
 
 
-      {user &&
+      {user ?
 
         <div className="bg-gray-200 font-sans h-screen w-full grid justify-center items-center ">
           <div className="card w-80 sm:w-[500px] mx-auto bg-white  shadow-xl hover:shadow mt-2 mb-0 ">
@@ -56,7 +57,11 @@ function Profile() {
             Página Principal
           </button>
 
-        </div>}
+        </div>: 
+        
+          <img src={loading} alt="cargando..." className='mx-auto'/>
+        
+        }
 
 
 

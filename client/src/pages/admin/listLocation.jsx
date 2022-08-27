@@ -50,11 +50,11 @@ function ListLocation() {
                 <table className="table-auto w-full border rounded-md shadow-lg">
                   <thead>
                     <tr className="bg-violet-500 text-center">
-                      <th className="w-1/4 min-w-[160px] text-lg font-semibold text-white py-1 px-3 lg:px-4 border-l border-transparent">
+                      <th className="w-1/2 min-w-[200px] text-lg font-semibold text-white py-1 px-3 lg:px-4 border-l border-transparent">
                         Ubicacion
                       </th>
 
-                      <th className="w-1/2 min-w-[160px] text-lg font-semibold text-white py-1 px-3 lg:px-4 border-l border-transparent">
+                      <th className="w-1/2 min-w-[200px] text-lg font-semibold text-white py-1 px-3 lg:px-4 border-l border-transparent">
                         Acciones
                       </th>
                     </tr>
@@ -63,12 +63,12 @@ function ListLocation() {
                     {locations.map((location) => {
                       return (
                         <tr>
-                          <td className="text-center text-dark font-medium text-base py-3 px-2 bg-[#F3F6FF] border-b border-l border-[#E8E8E8]">
+                          <td className="text-center text-dark font-medium text-base py-3 px-2 bg-violet-100 border-b border-l border-[#E8E8E8]">
                             {location.description}
                           </td>
 
-                          <td className="text-center text-dark font-medium text-sm py-1 px-2 m-0 bg-white border-b border-l border-[#E8E8E8] w-80 inline-flex items-center justify-center gap-1">
-                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 mt-2 rounded focus:outline-none focus:shadow-outline align-right">
+                          <td className="text-center text-[14px] py-1 px-2 m-0 bg-white border-b border-l border-[#E8E8E8]">
+                            <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-2 mt-2 rounded focus:outline-none focus:shadow-outline align-right">
                               <Link
                                 to={"/admin/formLocation"}
                                 state={{
@@ -81,7 +81,7 @@ function ListLocation() {
                             </button>
                             &nbsp;
                             <button
-                              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 mt-2 rounded focus:outline-none focus:shadow-outline align-right"
+                              className="bg-red-500 hover:bg-red-700 text-white py-2 px-2 mt-2 rounded focus:outline-none focus:shadow-outline align-right"
                               onClick={() => handleDelete(location.id_place)}
                             >
                               Eliminar
