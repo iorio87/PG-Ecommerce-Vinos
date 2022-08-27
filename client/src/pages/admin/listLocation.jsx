@@ -39,50 +39,7 @@ function ListLocation() {
         >
           Agregar Ubicacion
         </Link>
-        </div>
-        {/* <table className="min-w-full">
-          <thead>
-            <tr>
-              <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
-                Ubicacion
-              </th>
-              <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
-                Acciones
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {locations &&
-              locations.map((location) => {
-                return (
-                  <tr key={location.id_place}>
-                    <td>{location.description}</td>
-                    <td>
-                      <button className="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
-                        <Link
-                          to={"/admin/formLocation"}
-                          state={{
-                            id_place: location.id_place,
-                            description: location.description,
-                          }}
-                        >
-                          🖋️
-                        </Link>
-                        &nbsp; &nbsp;&nbsp;&nbsp;
-                      </button>
-                      &nbsp;&nbsp;&nbsp;
-                      <button
-                        className="px-5 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none"
-                        onClick={() => handleDelete(location.id_place)}
-                      >
-                        🚫
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table> */}
+        </div>        
       </div>
 
       <section className="bg-white">

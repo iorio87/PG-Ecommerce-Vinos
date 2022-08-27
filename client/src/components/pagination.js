@@ -10,7 +10,7 @@ function Pagination({products, productPerPage, paginado, prev} ) {
     
     
     return (
-        <nav className='grid justify-items-center bg-gray-100'>
+        <nav className='grid justify-items-center bg-white'>
             <ul className='inline-flex -space-x-md m-3'>                
                 {pageNumbers && pageNumbers.map(number => { 
                     return <li key={number} className='py-2 px-3 m-3 leading-tight text-gray-500 bg-white border border-violet-700 rounded-full hover:bg-violet-700 hover:text-white cursor-pointer'>
