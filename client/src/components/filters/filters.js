@@ -38,7 +38,7 @@ export default function Filters() {
             handleFilterInitialData={handleFilterInitialData}
             handleFilter={handleFilter}
             filterdata={filterdata}
-            name="Bodegas"
+            name="Productor"
           />
         </div>
         <div className="w-40">
