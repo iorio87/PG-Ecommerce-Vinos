@@ -10,7 +10,7 @@ export default function Filter({
 }) {
 
   let tempName =
-    name === "Productor"
+    name === "Bodega"
       ? filterdata.Productor
       : name === "DegreeSugar"
       ? filterdata.DegreeSugar
@@ -26,8 +26,7 @@ export default function Filter({
         <div className="mb-3 xl:w-96 ">
           <select
             className="form-select appearance-none
-            flex justify-center
-            block
+            flex justify-center            
             w-full
             px-3
             py-1.5
@@ -46,10 +45,7 @@ export default function Filter({
               handleFilter(name, e.target.value);
               handleFilterInitialData();
             }}
-            // onBlur={() => {
-            //   handleFilterInitialData();
-              
-            // }}
+            
           >
             <option hidden value={name} >{name}</option>
             {tempName &&
