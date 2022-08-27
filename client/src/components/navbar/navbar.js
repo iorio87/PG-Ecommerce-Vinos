@@ -1,10 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-lone-blocks */
-/* eslint-disable react/jsx-no-duplicate-props */
-/* eslint-disable no-redeclare */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React, { useEffect, useState } from "react";
 import Search from "../search/search";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -12,8 +6,8 @@ import logo from "../../assets/logo.png";
 import ShoppingCartBtn from "../shoppingCart/shoppingCartBtn";
 import Avatar from "../avatar/avatar";
 import { useDispatch } from "react-redux";
-import { AddUser, getUserById } from "../../actions/action";
-// import { useEffect, useState } from "react";
+import { AddUser } from "../../actions/action";
+
 import jwt_decode from "jwt-decode";
 import ReturnUserLoged from "../../navigation/returnUserLoged";
 
@@ -24,9 +18,8 @@ export default function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [data, setData] = useState(false);
   const { getAccessTokenSilently } = useAuth0();
-  const [userRole, setUserRole] = useState(false);
-  // const [admin, setAdmin] = useState(false);
-  const id = user && user.sub;
+  
+ 
 
   async function loadertoken() {
     await getAccessTokenSilently().then((res) => {
@@ -35,26 +28,12 @@ export default function Navbar() {
     });
   }
 
-  // const handleSearchForUserRoleApi = async () => {
-  //   let res = await dispatch(getUserById(id));
-
-  //   res.role && setUserRole(res.role);
-  // };
-
   // console.log("userRole", userRole);
   useEffect(() => {
     loadertoken();
   }, [getAccessTokenSilently]);
 
-  // useEffect(() => {
-  //   id && handleSearchForUserRoleApi();
-  // }, [id]);
 
-  // const buttonAdmin = () => {
-  //   if (userRole === "admin" || ReturnUserLoged() === "Admin") {
-  //     setAdmin(true);
-  //   }
-  // }
 
   return (
     <div className="bg-blue-500" id="navbar">
@@ -152,19 +131,7 @@ export default function Navbar() {
             <Search />
           </li>
           <li className="text-gray-300">
-            {/* <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              className="w-4 h-4 current-fill"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-              />
-            </svg> */}
+        
           </li>
           <div className="hidden md:flex">
             <ShoppingCartBtn />

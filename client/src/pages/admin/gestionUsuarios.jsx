@@ -35,8 +35,9 @@ const changeRole = (id, role) => {
 
 
 return (
-  <div>
-    <h1 className="m-3">Gestionar Usuarios</h1>
+  <div className="align-middle min-w-full overflow-hidden bg-white px-8 pt-3">
+    <h1 className="text-3xl font-semibold">Gestionar Usuarios</h1>
+    <hr />
     <button
         className="bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-2 mt-2 rounded focus:outline-none focus:shadow-outline align-right"
         onClick={() => (window.location.href = "/admin/home")}
@@ -68,7 +69,7 @@ return (
                     </th>
 
                     <th
-                      className="w-1/2 min-w-[160px] text-lg font-semibold text-white py-1 px-3 lg:px-4 border-l border-transparent"
+                      className="w-1/4 min-w-[300px] text-lg font-semibold text-white py-1 px-3 lg:px-4 border-l border-transparent"
                     >
                       Acciones
                     </th>
@@ -79,7 +80,7 @@ return (
                     return (
                       <tr>
                         <td
-                          className="text-center text-dark font-medium text-base py-3 px-2 bg-[#F3F6FF] border-b border-l border-[#E8E8E8]"
+                          className="text-center text-dark font-medium text-base py-3 px-2 bg-violet-100 border-b border-l border-[#E8E8E8]"
                         >
                           {user.full_name}
                         </td>
@@ -89,29 +90,29 @@ return (
                           {user.email}
                         </td>
                         <td
-                          className="text-center text-dark font-medium text-base py-3 px-2 bg-[#F3F6FF] border-b border-l border-[#E8E8E8]"
+                          className="text-center text-dark font-medium text-base py-3 px-2 bg-violet-100 border-b border-l border-[#E8E8E8]"
                         >
                           {user.role}
                         </td>
 
                         <td
-                          className="text-center text-dark font-medium text-sm py-1 px-2 m-0 bg-white border-b border-l border-[#E8E8E8] w-80 inline-flex items-center justify-center gap-1"
+                          className="text-center text-dark font-medium text-sm py-1 px-2 m-0 bg-white border-b border-l border-[#E8E8E8] w-80 "
 
                         >
                           <button
-                            className='bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-2 mt-2 rounded focus:outline-none focus:shadow-outline align-right'
+                            className='bg-violet-500 hover:bg-violet-700 text-white py-2 px-2 mt-2 rounded focus:outline-none focus:shadow-outline align-right'
                             onClick={() => changeRole(user.id,'Admin')}>
                             Hacer Admin
                           </button>
                           &nbsp;
                           <button
-                            className='bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-2 mt-2 rounded focus:outline-none focus:shadow-outline align-right'
+                            className='bg-violet-500 hover:bg-violet-700 text-white py-2 px-2 mt-2 rounded focus:outline-none focus:shadow-outline align-right'
                             onClick={() => changeRole(user.id,'User')}>
                             Cliente
                           </button>
                           &nbsp;
                           <button
-                            className='bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-2 mt-2 rounded focus:outline-none focus:shadow-outline align-right'
+                            className='bg-red-500 hover:bg-red-700 text-white py-2 px-2 mt-2 rounded focus:outline-none focus:shadow-outline align-right'
                             onClick={() => changeRole(user.id,'Baja')}>
                             Eliminar
                           </button>
