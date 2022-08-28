@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Newsletter from "./Newsletter";
 
@@ -25,22 +25,12 @@ const Footer = () => {
             Empresa
           </h2>
 
-          <p
-            onClick={() => {
-              navigate("/about");
-            }}
-            className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer"
-          >
-            Quienes somos
+          <p className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer">
+            <Link to={"/about"}>Quienes somos</Link>
           </p>
 
-          <p
-            onClick={() => {
-              navigate("/contact");
-            }}
-            className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer"
-          >
-            Nuestras Sucursales
+          <p className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer">
+            <Link to={"/contact"}>Nuestras Sucursales</Link>
           </p>
         </div>
 
