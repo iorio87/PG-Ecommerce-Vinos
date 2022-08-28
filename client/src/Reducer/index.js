@@ -1,9 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable default-case */
-// TODO
-// Pring Actions
-// Initialize State
-// Get Acctions
+
 import {
   GET_PRODUCTS,
   GET_CATEGORY,

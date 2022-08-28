@@ -16,15 +16,14 @@ export default function OrderDetail() {
  
   var btnEstado = ""   
   
-  function changeStatus(id, estado) {
-    console.log(`-${estado}-`);
+  function changeStatus(id, estado) {    
     var proxEstado = ""
     if (estado === 'Activar') proxEstado = 'Creada' // estaba Cancelada
     if (estado === 'Revertir Proceso') proxEstado = 'Procesando'
     if (estado === 'Cancelada') proxEstado = 'Cancelada'
     if (estado === 'Procesar') proxEstado = 'Procesando'
     if (estado === 'Completo') proxEstado = 'Completo'
-    console.log('change', id,'estado BOTON:', estado,'estado a Crear:', proxEstado);
+    
     dispatch(updateUserOrders({ id: id, estado: proxEstado }));
     // paso a completo y saco el stock
     if (estado === 'Procesar') {
@@ -42,6 +41,7 @@ export default function OrderDetail() {
     window.location.href = '/admin/ventas';
 
 }  
+console.log(state)
 console.log('state.estado: ', state.estado);
 
   if (state.estado === 'Creada') btnEstado = 'Procesar'

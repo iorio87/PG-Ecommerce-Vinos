@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 import {
   GET_PRODUCTS,
@@ -617,6 +618,7 @@ export function addFavorite(data) {
     axios.post(`${url}/favorite`,data)
       .then(resp => {
         dispatch(getFavorite(data.id_usuario))
+        toast.success('Producto agregado a favoritos')
       })
       .catch(err => {
         console.log(err)

@@ -50,6 +50,8 @@ function DatosEnvio() {
   });
 
   const email = localStorage.getItem('email')
+
+  console.log(email);
   
   useEffect(() => {
     axios.get(`${url}/orders` , {id, email}).then((res) => {   
@@ -58,7 +60,7 @@ function DatosEnvio() {
   }, []);
 
   useEffect(() => {
-    axios.put(`{url}/email`, {id, email }).then((res) => {   
+    axios.put(`${url}/orders/email`, {id, email }).then((res) => {   
      
     });
   }, []);

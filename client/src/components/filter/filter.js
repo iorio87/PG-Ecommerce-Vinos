@@ -10,7 +10,7 @@ export default function Filter({
 }) {
 
   let tempName =
-    name === "Bodega"
+    name === "Productor"
       ? filterdata.Productor
       : name === "DegreeSugar"
       ? filterdata.DegreeSugar

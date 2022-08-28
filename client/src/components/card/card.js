@@ -2,8 +2,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { FaShoppingCart } from "react-icons/fa";
-import { AddShoppingCart } from "../../actions/action";
+import { FaShoppingCart, FaHeart } from "react-icons/fa";
+import { addFavorite, AddShoppingCart } from "../../actions/action";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-scroll";
 
@@ -75,7 +75,7 @@ function Card({ id, name, image, price, summary, descuento }) {
           )}
         </div>
 
-        <div className="m-2 flex row gap-5 justify-center">
+        <div className="m-2 flex row gap-1 justify-center">
           <a
             role="button"
             className="border border-violet-700 px-4 py-1 rounded-md hover:bg-violet-700 hover:text-white flex justify-center"
@@ -83,7 +83,7 @@ function Card({ id, name, image, price, summary, descuento }) {
               history(`/detail/${id}`);
             }}
           >
-            Ver Detalle
+            Detalle
           </a>
           <div className="flex content-center">
             <Link
@@ -97,6 +97,14 @@ function Card({ id, name, image, price, summary, descuento }) {
             >
               
               <FaShoppingCart className="mt-1 mx-1" />
+            </Link>
+          </div>
+          <div className="flex content-center">
+            <Link    
+              onClick={() => dispatch(addFavorite({id_usuario:user.sub, id_prod:id}))}              
+              className="text-white bg-red-500 px-4 py-1 rounded-md hover:bg-red-900 flex justify-center content-center cursor-pointer"
+            >              
+              <FaHeart className="mt-1 mx-1" />
             </Link>
           </div>
         </div>
