@@ -75,7 +75,7 @@ function Card({ id, name, image, price, summary, descuento }) {
           )}
         </div>
 
-        <div className="m-2 flex row gap-1 justify-center">
+        <div className="m-2 flex row justify-around">
           <a
             role="button"
             className="border border-violet-700 px-4 py-1 rounded-md hover:bg-violet-700 hover:text-white flex justify-center"
@@ -93,7 +93,7 @@ function Card({ id, name, image, price, summary, descuento }) {
               offset={-100}
               duration={1000}
               onClick={() => AddtoCart(id)}
-              className="text-white bg-violet-500 px-4 py-1 rounded-md hover:bg-violet-900 flex justify-center content-center cursor-pointer"
+              className="text-white bg-violet-500 px-2 py-1 rounded-md hover:bg-violet-900 flex justify-center content-center cursor-pointer"
             >
               
               <FaShoppingCart className="mt-1 mx-1" />
@@ -102,7 +102,7 @@ function Card({ id, name, image, price, summary, descuento }) {
           <div className="flex content-center">
             <Link    
               onClick={() => dispatch(addFavorite({id_usuario:user.sub, id_prod:id}))}              
-              className="text-white bg-red-500 px-4 py-1 rounded-md hover:bg-red-900 flex justify-center content-center cursor-pointer"
+              className="text-white bg-red-500 px-2 py-1 rounded-md hover:bg-red-900 flex justify-center content-center cursor-pointer"
             >              
               <FaHeart className="mt-1 mx-1" />
             </Link>

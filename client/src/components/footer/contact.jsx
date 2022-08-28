@@ -2,7 +2,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "tailwindcss/tailwind.css";
-import Maps from "../maps/AnyReactComponent";
+import Maps from "../maps/maps";
 
 export default function Contact() {
   const navigate = useNavigate();
@@ -61,7 +61,7 @@ export default function Contact() {
                   target="_blank"
                 >
                   <svg
-                    className="w-10 h-10  mx-8 text-gray-400 text-blue-400 fill-current"
+                    className="w-10 h-10  mx-8 text-blue-400 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 496 512"
                   >

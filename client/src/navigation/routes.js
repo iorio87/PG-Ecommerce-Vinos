@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import DetailsComponent from "../components/productdetail/ProductDetail";
-import ShoppingCart from "../components/shoppingCart/shoppingCar";
+import ShoppingCart from "../components/shoppingCart/shoppingCart";
 import ShoppingData from "../components/shoppingCart/shoppingData";
 
 import Home from "../pages/home";

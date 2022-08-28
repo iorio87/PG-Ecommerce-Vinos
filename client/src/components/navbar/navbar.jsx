@@ -7,7 +7,6 @@ import ShoppingCartBtn from "../shoppingCart/shoppingCartBtn";
 import Avatar from "../avatar/avatar";
 import { useDispatch } from "react-redux";
 import { AddUser } from "../../actions/action";
-
 import jwt_decode from "jwt-decode";
 import ReturnUserLoged from "../../navigation/returnUserLoged";
 
@@ -112,7 +111,7 @@ export default function Navbar() {
           </div>
         </section>
 
-        <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+        <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
           <li>
             {
               <div>

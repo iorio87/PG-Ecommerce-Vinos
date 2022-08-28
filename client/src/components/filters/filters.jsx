@@ -1,17 +1,16 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import Filter from "../filter/filter";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Category, filterProductoCategory } from "../../actions/action";
-import "./filters.scss";
+
 
 export default function Filters() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(Category());
-  }, []);
+  }, [dispatch]);
 
   function capitalizarPrimeraLetra(str) {
     return str.charAt(0).toLowerCase() + str.slice(1);
