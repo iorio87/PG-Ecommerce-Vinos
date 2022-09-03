@@ -2,10 +2,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { postReview, getUserOrders } from "../../actions/action";
 import axios from "axios";
 import "./review.css";
+import { BiArrowBack } from "react-icons/bi";
 
 export function validate(input) {
   let errors = {};
@@ -20,7 +21,7 @@ function GetReviews() {
   var muestroDatos = "SI";
   //const url = "https://back-pgvinos.herokuapp.com";
 
-  const url = "http://localhost:3001"
+  const url = "http://localhost:3001";
   const [errors, setErrors] = useState({});
   const [review, Setreview] = useState(null);
   const [prod, Setprod] = useState(null);
@@ -269,18 +270,16 @@ function GetReviews() {
               </>
             ) : null}
 
-            <div className="divBoton">
-              {/* <button className='bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-4 mt-4 rounded focus:outline-none focus:shadow-outline'
-                                onClick={() => handleSubmit()}
-                                disabled={Object.keys(errors).length !== 0}>Grabar
-                            </button>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
-              <button
+            <div className="flex justify-center">
+              <Link
                 className="bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-4 mt-4 rounded focus:outline-none focus:shadow-outline align-right"
-                onClick={() => (window.location.href = "/")}
+                to={-1}
               >
-                Página Principal
-              </button>
+                <div className="flex items-center">
+                  <BiArrowBack className="mr-1"/>
+                  <p>VOLVER</p>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

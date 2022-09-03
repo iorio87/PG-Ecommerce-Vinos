@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import Search from "../search/search";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -17,8 +16,6 @@ export default function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [data, setData] = useState(false);
   const { getAccessTokenSilently } = useAuth0();
-  
- 
 
   async function loadertoken() {
     await getAccessTokenSilently().then((res) => {
@@ -32,13 +29,14 @@ export default function Navbar() {
     loadertoken();
   }, [getAccessTokenSilently]);
 
-
-
   return (
     <div className="bg-blue-500" id="navbar">
       <nav className="relative px-4 py-4 flex justify-between items-center bg-white">
-        <span className="sr-only">Workflow</span>
-        <img className="h-8 w-auto sm:h-20 m-0" src={logo} alt="" />
+        <div className="flex items-center">
+          <span className="sr-only">PG-Vinos</span>
+          <img className="h-8 w-auto sm:h-20 m-0" src={logo} alt="" />
+          <h1 className="font-bold italic text-lg">PG VINOS</h1>
+        </div>
 
         <div className="lg:hidden">
           <ShoppingCartBtn />
@@ -77,35 +75,33 @@ export default function Navbar() {
                 <Search />
               </li>
               <li className="border-b border-gray-400 my-8 uppercase">
-              
-                  {!isAuthenticated ? (
-                    <button 
-                      className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-violet-500 hover:bg-indigo-700"
-                      href="#"
-                      onClick={() => loginWithRedirect()}
-                    >
-                      Sign in
-                    </button>
-                  ) : (
-                    <Avatar user={user} />
-                  )}
-                  <div>
-                    {isAuthenticated && data
-                      ? dispatch(
-                          AddUser({
-                            id: user.sub,
-                            full_name: user.nickname,
-                            email: user.email,
-                            role:
-                              data &&
-                              data["https://my-domain.com/roles"][0] === "Admin"
-                                ? "Admin"
-                                : "user",
-                          })
-                        )
-                      : null}
-                  </div>
-               
+                {!isAuthenticated ? (
+                  <button
+                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-violet-500 hover:bg-indigo-700"
+                    href="#"
+                    onClick={() => loginWithRedirect()}
+                  >
+                    Sign in
+                  </button>
+                ) : (
+                  <Avatar user={user} />
+                )}
+                <div>
+                  {isAuthenticated && data
+                    ? dispatch(
+                        AddUser({
+                          id: user.sub,
+                          full_name: user.nickname,
+                          email: user.email,
+                          role:
+                            data &&
+                            data["https://my-domain.com/roles"][0] === "Admin"
+                              ? "Admin"
+                              : "user",
+                        })
+                      )
+                    : null}
+                </div>
               </li>
             </ul>
           </div>
@@ -129,9 +125,7 @@ export default function Navbar() {
           <li>
             <Search />
           </li>
-          <li className="text-gray-300">
-        
-          </li>
+          <li className="text-gray-300"></li>
           <div className="hidden md:flex">
             <ShoppingCartBtn />
           </div>

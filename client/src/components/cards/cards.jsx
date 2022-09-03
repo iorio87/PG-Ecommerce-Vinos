@@ -45,7 +45,7 @@ function Cards() {
   };
 
   return (
-    <div className="bg-gray-100" id="listado">
+    <div className='bg-[url("https://i.ibb.co/sbxXrkv/wine.jpg")] bg-center m-0 bg-fixed' id="listado">
       <div className="flex justify-center p-4">
         <ReactPaginate
           previousLabel={"Pag.Anterior"}

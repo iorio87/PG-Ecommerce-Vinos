@@ -41,8 +41,8 @@ function Card({ id, name, image, price, summary, descuento }) {
   }
   var precios = price / ((100 - descuento) / 100);
   return (
-    <div className="flex justify-center scroll-smooth">
-      <div className="w-60 p-2 rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
+    <div className="flex justify-center scroll-smooth rounded">
+      <div className="w-60 p-2 rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl bg-gray-100">
         <img
           className="h-50 object-cover rounded-xl border border-violet-300"
           src={

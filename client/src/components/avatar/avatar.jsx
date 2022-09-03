@@ -13,9 +13,11 @@ export default function Avatar({ user }) {
 
 
   return (
-    <div className="flex -space-x-4  items-center  ">
+    <div className="flex items-center">
       <a href="/profile">
-      <div className="relative inline-block">
+        
+      <div className="relative flex items-center">
+        <p className="p-2 font-bold">Mi cuenta</p>
         <img
           className="inline-block object-cover w-12 h-12 rounded-full"
           src={user.picture }
